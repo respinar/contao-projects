@@ -1,0 +1,41 @@
+{
+    "name": "respinar/contao-projects",
+    "description": "Projects Bundle for Contao",
+    "keywords": ["contao", "projects", "bundle"],
+    "type": "contao-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hamid Peywasti",
+            "email": "hamid@respinar.com",
+            "homepage": "https://respinar.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/respinar/contao-projects/issues",
+        "source": "https://github.com/respinar/contao-projects"
+    },
+    "require": {
+        "php": "^8.3",
+        "contao/core-bundle":"^5.7"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Respinar\\ProjectsBundle\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+             "contao-components/installer": true,
+            "contao/manager-plugin": true,
+            "php-http/discovery": false
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "Respinar\\ProjectsBundle\\ContaoManager\\Plugin"
+    }
+}
