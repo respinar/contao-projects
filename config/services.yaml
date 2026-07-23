@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Respinar\ProjectsBundle\:
+        resource: ../src
+        exclude:
+            - ../src/ContaoManager
