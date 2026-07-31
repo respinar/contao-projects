@@ -1,0 +1,30 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+{% use "@Contao/component/_figure.html.twig" %}
+{% block content %}
+    {% if projects is not empty %}
+        <div class="project-list">
+            {% for project in projects %}
+                <article class="project{% if project.featured %} featured{% endif %}">
+                    {% if project.figure %}
+                        <div class="project-image">
+                            {% with {figure: project.figure} %}{{ block('figure_component') }}{% endwith %}
+                        </div>
+                    {% endif %}
+                    {% if project.href %}
+                        <a href="{{ project.href }}">
+                    {% endif %}
+                        <h3>{{ project.title }}</h3>
+                    {% if project.href %}
+                        </a>
+                    {% endif %}
+                    {% if project.date %}
+                        <time datetime="{{ project.date|date('c') }}">{{ project.date|date('F Y') }}</time>
+                    {% endif %}
+                    {% if project.summary %}
+                        <div class="summary">{{ project.summary|raw }}</div>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

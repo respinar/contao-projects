@@ -1,0 +1,27 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+{% use "@Contao/component/_figure.html.twig" %}
+{% block content %}
+    <article class="project">
+        <h1>{{ project.title }}</h1>
+        {% if project.date %}
+            <time datetime="{{ project.date|date('c') }}">{{ project.date|date('F Y') }}</time>
+        {% endif %}
+        {% if project.completionDate %}
+            <time datetime="{{ project.completionDate|date('c') }}">{{ project.completionDate|date('F Y') }}</time>
+        {% endif %}
+        {% if figure %}
+            <div class="project-image">
+                {% with {figure: figure} %}{{ block('figure_component') }}{% endwith %}
+            </div>
+        {% endif %}
+        {% if project.summary %}
+            <div class="summary">{{ project.summary|raw }}</div>
+        {% endif %}
+        {% if hasText.invoke() %}
+            {{ text.invoke()|raw }}
+        {% endif %}
+        {% if back_link %}
+            <a href="{{ back_link }}" class="back">Back to overview</a>
+        {% endif %}
+    </article>
+{% endblock %}
